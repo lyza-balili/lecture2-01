@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <title>Creating a Custom Ground in A-Frame</title>
+</head>
+<body>
+    <a-scene>
+        <!-- Asset Management System -->
+         <a-assets>
+           <img id="floor" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_diff_4k.jpg">
+            <img id="floor-NRM" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_nor_gl_4k.jpg" alt="">
+            <img id="floor-roughness" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_rough_4k.jpg" alt="">
+            <img id="floor-ao" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_ao_4k.jpg"></img>
+            <img id="clear-sunny-sky" src="assets/clear-sunny-sky.jpg">
+        </a-assets>
+
+        <a-sky
+        src="#clear-sunny-sky"
+        rotation="0 64 0">
+        </a-sky>
+
+        <a-plane 
+        material="
+        color:#FFFFFF; 
+        src:#floor; 
+        repeat: 5000, 5000; 
+        normal-map:#floor-NRM; 
+        normal-texture-repeat: 5000 5000;
+        floor-roughness: #floor-roughness;
+        roughness: 0.6;
+        ao-map: #floor-ao;
+        repeat: 5000 5000;
+        ao: 0.5"
+        rotation="-90 0 0"
+        scale="10000 10000 1">
+
+        </a-plane>
+    </a-scene>
+</body>
+</html>
