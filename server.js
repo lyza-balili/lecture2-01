@@ -9,7 +9,7 @@ http.createServer((req, res) => {
   console.log(`Request for ${req.url}`);
 
   // Default to index.html
-  let filePath = req.url === '/' ? '/starter-file.html' : req.url;
+  let filePath = req.url === '/' ? '/index.html' : req.url;
   filePath = path.join(__dirname, filePath);
 
   const extname = path.extname(filePath);
